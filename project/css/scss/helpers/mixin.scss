@@ -1,0 +1,29 @@
+@use "variables.scss" as *;
+//////// for main button ////////
+@mixin btn($background) {
+  border-radius: 30px;
+  background-color: $background;
+  padding: 1rem 1.5rem !important;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.5s;
+  text-align: center;
+}
+
+//////// circle before divs in operation ////////
+@mixin shape($background) {
+  content: "";
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -100px;
+  background-color: rgba($background, 0.3);
+  @media #{$mobail} {
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

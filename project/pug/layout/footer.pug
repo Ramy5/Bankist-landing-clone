@@ -1,0 +1,13 @@
+//- start footer ////////
+footer.padd.flex
+  ul.footer__list.ul-reset.flex
+    each list in ["About", "Pricing", `Terms ${"of"} Use`, "Privacy Policy", "Careers", "Blog", "Contact Us"]
+      li.footer__item 
+        a(class="footer__link" href="#")= list 
+
+  .footer__icon 
+    img(src="images/icon.png" alt="icon__logo")
+  .footer__copyright 
+    p &copy; Copyright by <a href="#" class="copy">Jonas Schmedtmann.</a>
+    p &reg; Created by <a href="https://www.facebook.com/profile.php?id=100008124648610" target="_blank" class="copy">Ramy Sabry❤️</a>
+//- end footer ////////

@@ -1,0 +1,60 @@
+@use "../helpers/variables.scss" as *;
+//////// start footer ////////
+footer {
+  background-color: $mainColor;
+  flex-direction: column;
+  min-height: 25rem;
+  color: #ccc;
+  .footer__list {
+    font-size: 1.1rem;
+    @media #{$mobail} {
+      font-size: 1.5rem;
+      flex-direction: column;
+      margin-bottom: 30px;
+    }
+    @media #{$small} {
+      width: 76%;
+    }
+    @media #{$medium} {
+      width: 65%;
+    }
+    .footer__item {
+      @media #{$mobail} {
+        margin-bottom: 20px;
+      }
+      .footer__link {
+        color: #ccc;
+        text-decoration: none;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .footer__icon {
+    img {
+      width: 60px;
+      height: 60px;
+    }
+    @media #{$mobail} {
+      margin-bottom: 40px;
+    }
+  }
+  .footer__copyright {
+    text-align: center;
+    p {
+      &:first-of-type {
+        margin-bottom: 10px;
+      }
+      .copy {
+        color: #fff;
+        text-decoration: none;
+      }
+      @media #{$mobail} {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+//////// end footer ////////

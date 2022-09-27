@@ -1,0 +1,155 @@
+@use "../helpers/variables.scss" as *;
+@use "../helpers/mixin.scss" as *;
+// for flex
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// for span effect in popup and title
+.sp__title {
+  position: relative;
+  padding: 3px 10px;
+  color: $mainColor;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: #{$mainGradient};
+    opacity: 0.7;
+    transform: skew(-15deg);
+  }
+}
+
+.padd {
+  padding: {
+    top: $mainPadding;
+    bottom: $mainPadding;
+  }
+}
+
+// reset ul bullet
+.ul-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// main btn
+.btn {
+  @include btn($mainBtnColor);
+  &:hover {
+    background-color: rgba($btnColorHover, 0.8);
+    transform: translateY(-10px);
+  }
+}
+
+.tc {
+  text-align: center;
+}
+
+.section {
+  transition: all 1s;
+}
+
+// for main head in sections
+.mainHead {
+  width: 80%;
+  margin: auto;
+  @media #{$mobail} {
+    width: auto;
+    text-align: center;
+  }
+  .main__h {
+    color: $mainBtnColor;
+    margin-bottom: 20px;
+    @media #{$mobail} {
+      font-size: 2rem;
+    }
+  }
+  p {
+    font-size: 3rem;
+    color: $mainColor;
+    @media #{$mobail} {
+      font-size: 2rem;
+    }
+  }
+}
+
+// border bottom for sections
+.bb-section {
+  border-bottom: 1px solid rgba($mainColor, 0.2);
+}
+
+// for transform effect in sections
+.containing-section {
+  overflow: hidden;
+}
+
+// for arrow in slide
+%arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  color: $mainColor;
+  background-color: #fff;
+}
+//////// manipulating with js file ////////
+// for hidden content
+.hidden {
+  display: none;
+}
+
+// click on button on nav media
+.btn__nav-active {
+  span {
+    background-color: #f5465d !important;
+    &:first-of-type {
+      top: 20px !important;
+      transform: rotate(-45deg);
+    }
+    &:nth-of-type(2) {
+      display: none !important;
+    }
+    &:last-of-type {
+      top: 20px !important;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+// section effect
+.section-effect {
+  transform: translateY(15rem);
+  opacity: 0;
+}
+
+// imgage in feature section effect
+.img-effect {
+  filter: blur(15px);
+}
+
+// nav fixed on scroll
+.nav-fixed {
+  position: fixed !important;
+  z-index: 4000;
+  width: 100%;
+  background-color: rgba(#fff, 0.95);
+}
+
+.bullet-active {
+  background-color: rgba($mainColor, 0.6) !important;
+}

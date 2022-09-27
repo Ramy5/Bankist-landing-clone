@@ -1,0 +1,30 @@
+include ../helpers/variables.pug
+//- start header ////////
+
+header.bb-section
+  //- first (nav)
+  nav(class="nav flex")
+    img(src="images/logo.png" alt="logo")
+    //- for media 
+    .btn__ul 
+      -for (let i = 0; i < 3; i++)
+        span 
+    ul(class="nav__links flex ul-reset")
+      each text in ["Features", "Operations", "Testimonials"]
+        li(class="nav__item")
+          a(class="nav__link" href=`#section--${countHeader++}`)= text
+      li(class="nav__item") 
+        a(class="btn__acc btn nav__link radius" href="#") Open account
+
+  .container
+    //- second header title 
+    .header__title.flex.padd 
+      .title
+        h1 When <span class="sp__title">banking</span> meets <span class="sp__title">minimalist</span>
+        p(class='p__title') A simpler banking experience for a simpler life.
+        button(aria-label="learn-more" class="btn__title") Learn more &downarrow;
+
+      .image__title
+        img(src="images/hero.png" alt="money")
+
+//- end header ////////

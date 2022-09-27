@@ -1,0 +1,32 @@
+@use "../helpers/variables.scss" as *;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif, Tahoma;
+  background-color: #f1f1f1;
+}
+
+//////// media ////////
+.container {
+  padding: {
+    left: 1rem;
+    right: 1rem;
+  }
+  margin: auto;
+
+  @media #{$small} {
+    width: 750px;
+  }
+
+  @media #{$medium} {
+    width: 970px;
+  }
+
+  @media #{$large} {
+    width: 1170px;
+  }
+}

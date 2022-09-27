@@ -1,0 +1,32 @@
+include variables.pug 
+//- main head section ////////
+mixin mainHead(textH, textP)
+  .mainHead.padd 
+    h2(class="main__h")= textH
+    p= textP
+
+//- main div in section 1 (feature) ////////
+mixin mainDiv(src, sectionH, sectionp)
+  .contain.flex 
+    div(class=`image__section--${countSection++} image__section`) 
+      img(class=`section__img--${countSectionImg++}`, src=`${src}` , alt="section")
+    .content 
+      h3= sectionH 
+      p= sectionp 
+
+//- divs in tabs section 3 (operation) ////////
+mixin tabsDiv(tabP1, tabP2, hidden)
+  div(class=`tabs ${hidden} tab--${countTab++}`)
+    p= tabP1 
+    p= tabP2 
+
+//- divs in slide section 4 (testimonials) ////////
+mixin slideDiv(h3, quote, src, h4, p)
+  div(class=`slide slide--${countSlide++}`) 
+    h3(class="slide__head")= h3 
+    blockquote(class="quote")= quote 
+    address 
+      img(src=`${src}`, alt="avatar")
+      .address__content 
+        h4= h4
+        p= p

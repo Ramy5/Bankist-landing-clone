@@ -1,0 +1,201 @@
+@use "../helpers/variables.scss" as *;
+@use "framework.scss";
+//////// start header ////////
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  @media #{$mobail} {
+    height: auto;
+  }
+  // nav
+  .nav {
+    padding: 1.2rem 5rem;
+    position: relative;
+    @media #{$mobail} {
+      padding: 1.2rem 2rem;
+    }
+    img {
+      transition: 0.2s;
+      width: 150px;
+      height: 50px;
+    }
+    // btn for media
+    .btn__ul {
+      width: 60px;
+      height: 50px;
+      position: relative;
+      transition: all 0.5s;
+      cursor: pointer;
+      &:hover span {
+        background-color: #f5465d;
+      }
+      span {
+        transition: all 0.5s;
+        width: 100%;
+        height: 10px;
+        background: $mainBtnColor;
+        display: block;
+        position: absolute;
+        &:first-of-type {
+          top: 0;
+        }
+        &:nth-of-type(2) {
+          top: 20px;
+        }
+        &:last-of-type {
+          top: 40px;
+        }
+      }
+      @media #{$mobail} {
+        display: block;
+      }
+      @media #{$small} {
+        display: block;
+      }
+      @media #{$medium} {
+        display: none !important;
+      }
+    }
+    .nav__links {
+      @media #{$mobail} {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0.5rem;
+        background: #fff;
+        z-index: 3000;
+      }
+      @media #{$small} {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 5rem;
+        width: 40%;
+        padding: 1rem 0.5rem;
+        background: #fff;
+        z-index: 3000;
+      }
+      @media #{$medium} {
+        display: flex !important;
+        position: static;
+        top: auto;
+        left: auto;
+        width: 90%;
+        justify-content: flex-end;
+        padding: 0;
+        background-color: transparent;
+      }
+      .nav__item {
+        .nav__link {
+          transition: 0.2s;
+          text-decoration: none;
+          color: $mainColor;
+          font-size: 1.2rem;
+          @media #{$mobail} {
+            margin: auto;
+            display: block;
+            padding: 20px 15px;
+            border-bottom: 1px solid #ccc;
+          }
+          @media #{$small} {
+            margin: auto;
+            display: block;
+            padding: 20px 15px;
+            border-bottom: 1px solid #ccc;
+          }
+          @media #{$medium} {
+            border-bottom: none;
+            padding: 0;
+            margin-left: 35px;
+            border-bottom: none;
+          }
+        }
+
+        .btn__acc {
+          transition: all 0.5s;
+          &:hover {
+            transform: translateY(-5px);
+          }
+          @media #{$mobail} {
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+          }
+          @media #{$small} {
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+          }
+          @media #{$medium} {
+            margin-top: 0;
+            width: auto;
+            margin-left: 35px;
+          }
+        }
+      }
+    }
+  }
+
+  .header__title {
+    @media #{$mobail} {
+      flex-direction: column;
+    }
+    .title {
+      color: $mainColor;
+      @media #{$mobail} {
+        margin-bottom: 40px;
+      }
+      @media #{$small} {
+        width: 50%;
+      }
+      @media #{$medium} {
+        width: 60%;
+      }
+      h1 {
+        margin-bottom: 10px;
+        font-size: 2.1rem;
+        @media #{$medium} {
+          font-size: 3.3rem;
+        }
+        @media #{$large} {
+          font-size: 4rem;
+        }
+      }
+      p {
+        font-size: 1.4rem;
+        font-weight: 500;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+      .btn__title {
+        @media #{$mobail} {
+          margin-left: 20px;
+        }
+        color: $mainBtnColor;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border: none;
+        border-bottom: 2px solid $mainBtnColor;
+        padding: 5px;
+        cursor: pointer;
+      }
+    }
+
+    .image__title {
+      @media #{$small} {
+        width: 50%;
+      }
+      @media #{$medium} {
+        width: 38%;
+      }
+      img {
+        width: 100%;
+        height: 350px;
+      }
+    }
+  }
+}
+//////// end header ////////

@@ -1,0 +1,89 @@
+include helpers/variables.pug
+include helpers/mixin.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="Bankist landing, when banking meets minimalist.")
+    title Bankist Landing Clone
+    include helpers/styles.pug
+  body
+    //- for popup ////////
+    .popup.hidden 
+      .overlay
+      .popup__content.flex 
+        span.close x 
+        h3 Open your bank account in just <span class="sp__title">5 minutes</span>
+        form
+          each val in ["First Name", "Last Name"]
+            label= val 
+            input(type="text")
+          label Email 
+          input(type="email" )
+          button(aria-label="open-account").btn-popup.btn Next step &rarr;
+
+    //- for scroll to top ////////
+    .scroll-top.flex.hidden &uparrow;
+
+    //- header file ////////
+    include layout/header.pug
+
+    .container 
+      //- start main page ////////
+      //- start section 1 FEATURES ////////
+      .containing-section
+        section(id=`section--1` class='section feature padd bb-section')
+          +mainHead("FEATURES", "Everything you need in a modern bank and more.")
+          //- 3 content
+          +mainDiv(`images/digital-lazy.jpg`, "100% digital bank", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde alias sint quos? Accusantium a fugiat porro reiciendis saepe quibusdam debitis ducimus.")
+          +mainDiv(`images/grow-lazy.jpg`, "Watch your money grow", "Nesciunt quos autem dolorum voluptates cum dolores dicta fuga inventore ab? Nulla incidunt eius numquam sequi iste pariatur quibusdam!")
+          +mainDiv(`images/card-lazy.jpg`, "Free debit card included", "Quasi, fugit in cumque cupiditate reprehenderit debitis animi enim eveniet consequatur odit quam quos possimus assumenda dicta fuga inventore ab.")
+        //- end section 1 FEATURES ////////
+
+      //- start section 2 OPERATIONS ////////
+      .containing-section
+        section(id="section--2" class="section operation padd bb-section")
+          +mainHead("OPERATIONS", "Everything as simple as possible, but no simpler.")
+          //- tabs
+          .tabs__container 
+            .operation__btns.flex 
+              each val, i in [`01 Instant Transfers`, `02 Instant Loans`, `03 Instant Closing`]
+                button(aria-label="tabs" class="btn btn__tabs" data-tab=`${i+1}`)= val 
+            .operation__content 
+              +tabsDiv("Tranfser money to anyone, instantly! No fees, no BS.", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "active")
+              +tabsDiv("Buy a home or make your dreams come true, with instant loans.", "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "hidden")
+              +tabsDiv("No longer need your account? No problem! Close it instantly.", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "hidden")
+      //- end section 2 OPERATIONS ////////
+
+      //- start section 3 Testimonials ////////
+      .containing-section
+        section(id="section--3" class="section testimonials padd bb-section")
+          +mainHead("NOT SURE YET?", "Millions of Bankists are already making their lifes simpler.")
+          //- slide
+          .testimonial__content 
+            +slideDiv("Best financial decision ever!", "orem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium quas quisquam non? Quas voluptate nulla minima deleniti optio ullam nesciunt, numquam corporis et asperiores laboriosam sunt, praesentium suscipit blanditiis. Necessitatibus id alias reiciendis, perferendis facere pariatur dolore veniam.", `images/user-1.jpg`, "Aarav Lynn", "San Francisco, USA") 
+            +slideDiv("The last step to becoming a complete minimalist", "Quisquam itaque deserunt ullam, quia ea repellendus provident, ducimus neque ipsam modi voluptatibus doloremque, corrupti laborum. Incidunt numquam perferendis veritatis neque repellendus. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo deserunt exercitationem deleniti.", "images/user-2.jpg", "Miyah Miles", "London, UK")
+            +slideDiv("Finally free from old-school banks", "Debitis, nihil sit minus suscipit magni aperiam vel tenetur incidunt commodi architecto numquam omnis nulla autem, necessitatibus blanditiis modi similique quidem. Odio aliquam culpa dicta beatae quod maiores ipsa minus consequatur error sunt, deleniti saepe aliquid quos inventore sequi. Necessitatibus id alias reiciendis, perferendis facere.", "images/user-3.jpg", "Francisco Gomes", "Lisbon, Portugal")
+            button(aria-label="arrow-left" class="arrow-left") &larr;
+            button(aria-label="arrow-right" class="arrow-right") &rarr;
+            .bullet__slide.flex 
+              -for (let i = 0; i < 3; i++)
+                button(aria-label="dots" class="bullet" data-slide= `${i}`)
+      //- end section 3 Testimonials ////////
+
+    //- start section 4 open account
+    .containing-section
+      section(class="section open__account padd")
+        .contain 
+          p The best day to join Bankist was one year ago. The second best is today!
+          button(aria-label="open-account").btn.btn__acc Open your free account today!
+    //- end section 4 open account
+    //- end main page ////////
+
+    //- footer file ////////
+    include layout/footer.pug
+
+    //- script file (main) ////////
+    script(src="js/Bankist.js") 
